@@ -1,10 +1,9 @@
 import './App.css';
+import ListaPacientes from './pages/ListaPacientes';
 
 function App() {
   return (
-    <div>
-      Hello world
-    </div>
+    <ListaPacientes />
   );
 }
 
