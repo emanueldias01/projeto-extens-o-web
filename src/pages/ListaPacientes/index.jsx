@@ -2,12 +2,17 @@ import Botao from "../../components/botao"
 import Paciente from "../../components/paciente"
 import { IoMdAdd } from "react-icons/io";
 import './style.css'
+import { useNavigate } from "react-router-dom";
 
 const ListaPacientes = () => {
+
+    const navigate = useNavigate()
     return(
         <div className="container">
             <h1>Lista de Pacientes</h1>
-            <div className="div-botao">
+            <div className="div-botao" onClick={() => {
+                navigate('/criarPaciente')
+            }}>
                 <Botao texto={"Adicionar"} icone={<IoMdAdd />} cor={'green'}/>
             </div>
             <div className="list">
