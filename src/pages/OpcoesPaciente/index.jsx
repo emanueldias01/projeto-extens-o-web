@@ -44,7 +44,9 @@ const OpcoesPaciente = () => {
                     <Visitante id={1} nome={'visitante1'} cpf={'cpf1'} categoria={'categoria1'} dataEntrada={'dataEntrada1'}/>
                     <Visitante id={2} nome={'visitante2'} cpf={'cpf2'} categoria={'categoria2'} dataEntrada={'dataEntrada2'}/>
                 </div>
-                <div className="div-botao">
+                <div className="div-botao" onClick={() => {
+                    navigate('/criarVisitante/' + id)
+                }}>
                     <Botao texto={'Adicionar'} icone={<IoMdAdd />} cor={'green'}/>
                 </div>
             </div>
