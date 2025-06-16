@@ -1,0 +1,14 @@
+.container-editar{
+    border: 2px solid black;
+    border-radius: 16px;
+    margin: 15px;
+    padding: 10px;
+}
+
+.container-info-edit{
+    border: 2px solid blue;
+    border-radius: 16px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}

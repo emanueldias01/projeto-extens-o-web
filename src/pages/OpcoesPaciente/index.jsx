@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import './style.css'
 import Visitante from "../../components/visitante/Visitante"
 import Botao from "../../components/botao"
@@ -9,12 +9,19 @@ import { MdEdit } from "react-icons/md";
 const OpcoesPaciente = () => {
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
     return(
         <div className="container-info">
             <div className="div-header">
                 <h1>Informações de Paciente</h1>
+                <div onClick={() => {
+                    navigate('/editaPaciente/' + id)
+                }}>
                 <Botao texto={"Editar"} cor={'orange'} icone={<MdEdit />}/>
+
+            </div>
+               
             </div>
             
             <div className="info-paciente">
