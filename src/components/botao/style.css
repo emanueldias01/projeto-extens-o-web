@@ -1,9 +1,16 @@
 .botao{
     display: flex;
-    width: 15%;
     padding: 5px;
     margin: 0 auto;
     border: 2px solid purple;
     border-radius: 16px;
     color: white;
+}
+
+.botao:hover{
+    cursor: pointer;
+}
+
+.icone{
+    padding: 1px;
 }

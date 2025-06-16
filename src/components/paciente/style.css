@@ -16,3 +16,7 @@
     border: 2px solid rosybrown;
     border-radius: 50%;
 }
+
+.icon:hover{
+    cursor: pointer;
+}

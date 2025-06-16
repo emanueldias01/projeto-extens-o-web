@@ -5,7 +5,7 @@ const Botao = ({texto, icone, cor}) => {
     return(
         <div className="botao" style={{ backgroundColor : cor }}>
             <p>{texto}</p>
-            <p>{icone}</p>
+            <p className='icone'>{icone}</p>
         </div>
     )
 }

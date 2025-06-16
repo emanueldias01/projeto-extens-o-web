@@ -1,0 +1,17 @@
+.container-visitante{
+      display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin: 5px;
+    padding: 20px;
+    border: 2px solid blue;
+
+}
+
+.container-visitante h1{
+    font-size: 15px;
+}
+
+.container-visitante p {
+    font-size: 1rem;
+}

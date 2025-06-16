@@ -1,0 +1,35 @@
+.container-info{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 16px;
+    margin: 20px;
+}
+
+.info-paciente h1{
+    font-size: 20px;
+}
+
+.div-botao{
+    width: 97px;
+}
+
+.div-header{
+    display: flex;
+}
+
+.lista-visitante{
+
+}
+
+.info-paciente{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 2px solid red;
+    border-radius: 16px;
+    padding: 10px;
+    margin: 5px;
+}

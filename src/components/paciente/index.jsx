@@ -1,9 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import './style.css'
 import { SlOptions } from "react-icons/sl";
 
 
 
-const Paciente = ({nome, cpf, leito}) => {
+const Paciente = ({id, nome, cpf, leito}) => {
+
+
+    const navigate = useNavigate()
+
     return(
         <div className='paciente'>
             <div>
@@ -21,8 +26,10 @@ const Paciente = ({nome, cpf, leito}) => {
                 <p>{leito}</p>
             </div>
 
-            <div className='icon'> 
-                <SlOptions onClick={() => {console.log("hello world!")}}/>
+            <div className='icon' onClick={() => {
+                    navigate("/paciente/" + id)
+                }}> 
+                <SlOptions/>
             </div>
             
         </div>

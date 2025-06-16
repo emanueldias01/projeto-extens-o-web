@@ -7,11 +7,13 @@ const ListaPacientes = () => {
     return(
         <div className="container">
             <h1>Lista de Pacientes</h1>
-            <Botao texto={"Adicionar"} icone={<IoMdAdd />} cor={'green'}/>
+            <div className="div-botao">
+                <Botao texto={"Adicionar"} icone={<IoMdAdd />} cor={'green'}/>
+            </div>
             <div className="list">
-                <Paciente nome={'nome1'} cpf={'cpf1'} leito={'leito1'}/>
-                <Paciente nome={'nome2'} cpf={'cpf2'} leito={'leito2'}/>
-                <Paciente nome={'nome3'} cpf={'cpf3'} leito={'leito3'}/>
+                <Paciente id={1} nome={'nome1'} cpf={'cpf1'} leito={'leito1'}/>
+                <Paciente id={2} nome={'nome2'} cpf={'cpf2'} leito={'leito2'}/>
+                <Paciente id={3} nome={'nome3'} cpf={'cpf3'} leito={'leito3'}/>
             </div>
         </div>
     )
