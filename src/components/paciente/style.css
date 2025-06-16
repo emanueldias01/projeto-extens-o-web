@@ -1,0 +1,18 @@
+.paciente{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin: 5px;
+    padding: 20px;
+    border: 2px solid blue;
+}
+
+.paciente h1{
+    font-size: 20px;
+}
+
+.icon{
+    padding: 10px;
+    border: 2px solid rosybrown;
+    border-radius: 50%;
+}
