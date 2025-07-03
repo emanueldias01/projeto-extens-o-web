@@ -1,19 +1,28 @@
-.container-create-paciente{
+.container-create-paciente {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
-    border-radius: 16px;
-    margin: 15px;
-    padding: 10px;
-
+    border: 1.5px solid #e0e0e0;
+    border-radius: 18px;
+    margin: 32px auto;
+    padding: 28px 32px;
+    max-width: 600px;
+    background: #f9fafb;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
 }
 
-.container-paciente{
-    border: 2px solid blue;
+.container-create-paciente input{
     border-radius: 16px;
-    padding: 10px;
-    margin: 10px;
+    padding: 2px;
+}
+
+.container-paciente {
+    border: 1.5px solid #4f8cff;
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin: 18px 0;
     display: flex;
     flex-direction: column;
-
+    background: #f0f6ff;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+    gap: 14px;
 }

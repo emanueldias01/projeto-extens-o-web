@@ -1,17 +1,30 @@
-.container-visitante{
-      display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    margin: 5px;
-    padding: 20px;
-    border: 2px solid blue;
-
+.container-visitante {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 12px 0;
+    padding: 18px 28px;
+    border: 1.5px solid #4f8cff;
+    border-radius: 14px;
+    background: #f0f6ff;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+    transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-.container-visitante h1{
-    font-size: 15px;
+.container-visitante:hover {
+    box-shadow: 0 4px 16px rgba(79,140,255,0.13);
+    border-color: #2563eb;
+}
+
+.container-visitante h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #22223b;
+    margin: 0 12px 0 0;
 }
 
 .container-visitante p {
     font-size: 1rem;
+    color: #3a3a40;
 }

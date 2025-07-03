@@ -1,8 +1,17 @@
-.container-create{
+.container-create {
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    margin: 15px;
-    border: 2px solid blue;
+    gap: 16px;
+    padding: 28px 24px;
+    margin: 32px auto;
+    width: 100%;
+    border: 1.5px solid #4f8cff;
+    border-radius: 18px;
+    background: #f0f6ff;
+    box-shadow: 0 4px 16px rgba(79,140,255,0.10);
+}
+
+.container-create input {
     border-radius: 16px;
+    padding: 2px;
 }

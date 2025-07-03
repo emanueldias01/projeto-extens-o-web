@@ -1,22 +1,42 @@
-.paciente{
+.paciente {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    margin: 5px;
-    padding: 20px;
-    border: 2px solid blue;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0;
+    padding: 20px 28px;
+    border: 1.5px solid #4f8cff;
+    border-radius: 16px;
+    background: #f0f6ff;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+    transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-.paciente h1{
-    font-size: 20px;
+.paciente:hover {
+    box-shadow: 0 4px 16px rgba(79,140,255,0.16);
+    border-color: #2563eb;
 }
 
-.icon{
+.paciente h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #22223b;
+    margin: 0;
+}
+
+.icon {
     padding: 10px;
-    border: 2px solid rosybrown;
+    background: #fff;
     border-radius: 50%;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(123,47,242,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.icon:hover{
+.icon:hover {
     cursor: pointer;
+    color: #000000;
+    box-shadow: 0 2px;
 }
