@@ -15,7 +15,6 @@ const ListaPacientes = () => {
     const getPacientes = async () => {
         try{
             const resposta = await axios.get(`${apiIp}/pacientes`)
-            console.log(resposta.data);
             setPacientes(resposta.data)
         }catch(erro){
             window.alert("erro ao retornar pacientes")

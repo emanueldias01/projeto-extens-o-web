@@ -4,12 +4,42 @@ import Visitante from "../../components/visitante/Visitante"
 import Botao from "../../components/botao"
 import { IoMdAdd } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
+import { useEffect, useState } from "react";
+import axios from "axios";
+const apiIp = process.env.REACT_APP_API_URL;
+
 
 
 const OpcoesPaciente = () => {
 
     const { id } = useParams()
     const navigate = useNavigate()
+
+    const[nome, setNome] = useState("");
+    const[cpf, setCpf] = useState("");
+    const[leito, setLeito] = useState("");
+    const [visitantes, setVisitantes] = useState([]);
+    const [dataEntrada, setDataEntrada] = useState();
+
+    const getInfoPaciente = async () => {
+        try{
+            const resposta = await axios.get(`${apiIp}/pacientes/${id}`);
+            const dados = resposta.data;
+            console.log(dados);
+            setNome(dados.nome);
+            setCpf(dados.cpf);
+            setLeito(dados.leito);
+            setVisitantes(dados.visitantes);
+            setDataEntrada(dados.dataEntrada);
+        }catch(erro){
+            window.alert("Erro ao buscar informações do paciente!");
+            navigate("/");
+        }
+    }
+
+    useEffect(() => {
+        getInfoPaciente();
+    }, []);
 
     return(
         <div className="container-info">
@@ -26,23 +56,24 @@ const OpcoesPaciente = () => {
             
             <div className="info-paciente">
                 <h1>Nome:</h1>
-                <p>nome-paciente</p>
+                <p>{nome}</p>
 
                 <h1>CPF:</h1>
-                <p>cpf-paciente</p>
+                <p>{cpf}</p>
 
                 <h1>Leito:</h1>
-                <p>leito-paciente</p>
+                <p>{leito}</p>
 
                 <h1>Data de entrada:</h1>
-                <p>data-entrada-paciente</p>
+                <p>{dataEntrada}</p>
             </div>
 
             <div>
                 <h1>Lista de Visitantes:</h1>
                 <div className="lista-visitantes">
-                    <Visitante id={1} nome={'visitante1'} cpf={'cpf1'} categoria={'categoria1'} dataEntrada={'dataEntrada1'}/>
-                    <Visitante id={2} nome={'visitante2'} cpf={'cpf2'} categoria={'categoria2'} dataEntrada={'dataEntrada2'}/>
+                    {visitantes.length !== 0 ? visitantes.map(v => {
+                        <Visitante key={v.id} id={v.id} nome={v.nome} categoria={v.categoria} dataEntrada={v.dataEntrada}/>
+                    }) : <p>Nenhum visitante cadastrado</p>}
                 </div>
                 <div className="div-botao" onClick={() => {
                     navigate('/criarVisitante/' + id)
