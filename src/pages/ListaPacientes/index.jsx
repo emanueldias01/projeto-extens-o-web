@@ -3,10 +3,27 @@ import Paciente from "../../components/paciente"
 import { IoMdAdd } from "react-icons/io";
 import './style.css'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+const apiIp = process.env.REACT_APP_API_URL;
 
 const ListaPacientes = () => {
 
     const navigate = useNavigate()
+    const [pacientes, setPacientes] = useState([]);
+
+    const getPacientes = async () => {
+        try{
+            const resposta = await axios.get(`${apiIp}/pacientes`)
+            return resposta.data;
+        }catch(erro){
+            window.alert("erro ao retornar pacientes")
+        }
+    }
+
+    useEffect(() => {
+        getPacientes();
+    }, [])
     return(
         <div className="container">
             <h1>Lista de Pacientes</h1>
@@ -16,9 +33,9 @@ const ListaPacientes = () => {
                 <Botao texto={"Adicionar"} icone={<IoMdAdd />} cor={'green'}/>
             </div>
             <div className="list">
-                <Paciente id={1} nome={'nome1'} cpf={'cpf1'} leito={'leito1'}/>
-                <Paciente id={2} nome={'nome2'} cpf={'cpf2'} leito={'leito2'}/>
-                <Paciente id={3} nome={'nome3'} cpf={'cpf3'} leito={'leito3'}/>
+                {pacientes.length !== 0 ? pacientes.map(p => (
+                    <Paciente key={p.id} id={p.id} nome={p.nome} cpf={p.cpf} leito={p.leito}/>
+                )) : <p>Sem Pacientes cadastrados</p>}
             </div>
         </div>
     )
