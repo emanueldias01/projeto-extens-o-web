@@ -25,7 +25,6 @@ const OpcoesPaciente = () => {
         try{
             const resposta = await axios.get(`${apiIp}/pacientes/${id}`);
             const dados = resposta.data;
-            console.log(dados);
             setNome(dados.nome);
             setCpf(dados.cpf);
             setLeito(dados.leito);
@@ -71,9 +70,9 @@ const OpcoesPaciente = () => {
             <div>
                 <h1>Lista de Visitantes:</h1>
                 <div className="lista-visitantes">
-                    {visitantes.length !== 0 ? visitantes.map(v => {
-                        <Visitante key={v.id} id={v.id} nome={v.nome} categoria={v.categoria} dataEntrada={v.dataEntrada}/>
-                    }) : <p>Nenhum visitante cadastrado</p>}
+                    {visitantes.length !== 0 ? visitantes.map(v => (
+                        <Visitante key={v.id} id={v.id} nome={v.nome} categoria={v.categoria} dataEntrada={v.dataEntrada} cpf={v.cpf}/>
+                    )) : <p>Nenhum visitante cadastrado</p>}
                 </div>
                 <div className="div-botao" onClick={() => {
                     navigate('/criarVisitante/' + id)

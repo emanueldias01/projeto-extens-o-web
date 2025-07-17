@@ -41,7 +41,7 @@ const EditarPaciente = () => {
                 leito : parseInt(leito)
             });
             window.alert("Paciente alterado com sucesso!");
-            navigate("/");
+            navigate(`/paciente/${id}`)
         }catch(erro){
             window.alert("Não foi possível atualizar o paciente:" + erro.message);
             console.log(erro);
@@ -64,7 +64,6 @@ const EditarPaciente = () => {
                 <div className="div-botao" onClick={(e) => {
                     e.preventDefault();
                     uptadePaciente();
-                    navigate('/');
                 }}>
                     <Botao texto={'Atualizar'} cor={'green'} icone={<FaCheck />}/>
                 </div>
