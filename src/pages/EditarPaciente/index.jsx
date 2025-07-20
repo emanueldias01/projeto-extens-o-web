@@ -44,10 +44,6 @@ const EditarPaciente = () => {
 
     const getInfoPaciente = async () => {
         try{
-            if(!validarCPF(dados.cpf)){
-                window.alert("CPF inválido");
-                throw new Error("cpf invalido");
-            }
             const resposta = await axios.get(`${apiIp}/pacientes/${id}`);
             const dados = resposta.data;
             setNome(dados.nome);
@@ -65,6 +61,10 @@ const EditarPaciente = () => {
 
     const uptadePaciente = async () => {
         try{
+            if(!validarCPF(cpf)){
+                window.alert("CPF inválido");
+                return;
+            }
             await axios.put(`${apiIp}/pacientes/${id}`,{
                 nome : nome,
                 cpf : cpf,
@@ -83,13 +83,13 @@ const EditarPaciente = () => {
             <h1>Editar informações do paciente:</h1>
             <div className="container-info-edit">
                 <label htmlFor="Nome">Nome:</label>
-                <input type="text" onChange={(e) => {setNome(e.target.value)}}/>
+                <input type="text" value={nome} onChange={(e) => {setNome(e.target.value)}}/>
 
                 <label htmlFor="CPF">CPF:</label>
-                <input type="text" onChange={(e) => {setCpf(e.target.value)}}/>
+                <input type="text" value={cpf} onChange={(e) => {setCpf(e.target.value)}}/>
 
                 <label htmlFor="leito">Leito:</label>
-                <input type="text" onChange={(e) => {setLeito(e.target.value)}}/>
+                <input type="text" value={leito} onChange={(e) => {setLeito(e.target.value)}}/>
 
                 <div className="div-botao" onClick={(e) => {
                     e.preventDefault();
