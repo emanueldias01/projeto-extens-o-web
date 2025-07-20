@@ -3,7 +3,7 @@ import './style.css'
 import Visitante from "../../components/visitante/Visitante"
 import Botao from "../../components/botao"
 import { IoMdAdd } from "react-icons/io";
-import { MdEdit } from "react-icons/md";
+import { MdEdit, MdDelete } from "react-icons/md";
 import { useEffect, useState } from "react";
 import axios from "axios";
 const apiIp = process.env.REACT_APP_API_URL;
@@ -40,16 +40,32 @@ const OpcoesPaciente = () => {
         getInfoPaciente();
     }, []);
 
+    const deletaPaciente = async () => {
+        try{
+            await axios.delete(`${apiIp}/pacientes/${id}`);
+        }catch(erro){
+            window.alert("Paciente deletado com sucesso!");
+        }
+        
+    }
+
     return(
         <div className="container-info">
             <div className="div-header">
                 <h1>Informações de Paciente</h1>
                 <div onClick={() => {
+                        const confirm = window.confirm("Tem certeza que deseja deletar o paciente?");
+                        if(confirm) deletaPaciente(id);
+                        navigate("/");
+                    }}>
+                     <Botao texto={"Deletar"} cor={"red"} icone={<MdDelete/>} />
+                </div>
+                <div onClick={() => {
                     navigate('/editaPaciente/' + id)
                 }}>
                 <Botao texto={"Editar"} cor={'orange'} icone={<MdEdit />}/>
-
             </div>
+            
                
             </div>
             

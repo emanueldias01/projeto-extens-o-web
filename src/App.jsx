@@ -1,18 +1,19 @@
 import './App.css';
 import ListaPacientes from './pages/ListaPacientes';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import OpcoesPaciente from './pages/OpcoesPaciente';
 import CriarPaciente from './pages/CriarPaciente';
 import EditarPaciente from './pages/EditarPaciente';
 import CriarVisitante from './pages/CriarVisitante';
 import hapvida from './assets/logo.png'; // ajuste o caminho conforme sua pasta
 
-
 function App() {
   return (
     <BrowserRouter>
       <header className="header-logo">
-        <img src={hapvida} width={200} alt="Hapvida logo" />
+        <Link to="/">
+          <img src={hapvida} width={200} alt="Hapvida logo" />
+        </Link>
       </header>
       <Routes>
         <Route path='/' element={<ListaPacientes />}/>
